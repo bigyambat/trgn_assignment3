@@ -1,32 +1,33 @@
-#!/user/bin/python
-
+#!/usr/bin/python
 import re
-file = open("mytextfile.txt")
-text = file.read()
+import sys 
 
-pattern1 = r"\d{3}-\d{3}-\d{4}"
-pattern2 = r"^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$"
+#Now using sys to allow user to specify file 
 
-phone_number_pattern1 = re.findall(pattern1, text)
-phone_number_pattern2 = re.findall(pattern2, text)
+file = open('mytextfile.txt', 'r')
+phone_nums = file.read()
 
+phone_pattern = re.compile(r'[\+\(]?[1-9][0-9 .\-\(\)]{8,}[0-9]')
 
-print(phone_number_pattern1)
-print(phone_number_pattern2)
+pulled_nums = re.findall(phone_pattern, phone_nums)
 
-import re
+#print(pulled_numbs)
 
-file = open("mytextfile.txt")
-text = file.read()
+for each_num in pulled_nums:
+    if each_num.split('-')[0]=='+1':
+        l = each_num.split('-')
+        ls = []
+        for i in range(len(l)):
+            if i == 1:
+                ls.append("(")
+                ls.append(l[i])
+            elif i == 2:
+                ls.append(")")
+                ls.append(l[i])
+            else:
+                ls.append(l[i])
+        final = "".join(map(str,ls))
+    else:
+        l = each_num.split('-')
 
-pattern1 = r"\d{3}-\d{3}-\d{4}"
-pattern2 = r"+\d{2}-\d[{2}-\d{4}-\d{4}"
-
-phone_number_pattern1 = re.findall(pattern1, text)
-
-print(phone_number_pattern1) 
-        
-
-
-
-
+print(pulled_nums)     
