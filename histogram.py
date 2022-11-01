@@ -13,7 +13,7 @@ else: column_number = 2
 # print(column_number)
 
 #Creation of Histogram based on specific column
-df = pd.read_csv(sys.argv[2], sep=",", header=0)
+df = pd.read_csv(sys.argv[2], sep="\t", header=0)
 df.head(1)
 col_name = df.columns[column_number]
 ax =df.loc[:,col_name]
