@@ -3,14 +3,22 @@ TRGN510 Assignment 3 Fall 2022
 
 # Extract Phone Number Task 
 ## Usage
-Input a txt file with phone numbers and the program will return the phone numbers only 
+
+Input a file with a list of phone numbers. 
+
+This script works with the following command in bash:
+
+``` bash
+python3 extract_phonenum.py [file]
+```
+
 ## Description
-Input a txt file with phone numbers and the program will return the phone numbers only
+Input a txt file with phone numbers and the program will return the phone numbers only.
 ## Known Issues
 
 Works for regular numbers with 888-888-8888 pattern. Does not work for international numbers. 
 
-Found a solution that requires Hard-Wiring. 
+Unit tested with mytextfile.txt
 
 Issue: The solution prints the numbers, but the formatting is slightly incorrect. Additionally, international numbers do not get formatted properly. 
 
@@ -54,9 +62,11 @@ python3 histogram.py [-f][0-9] [file]
 
 ## Description
 Takes data and makes a histogram as a png file. 
-expres.anal.csv is the unit test that is used for this program. However, program works with any csv file. 
+expres.anal.tsv is the unit test that is used for this program. However, program works with any tsv file. 
 
 Program includes a column selector to select a specific column for a histogram. Histogram is saved as "histogram_figure.png" file name.
 
 ## Known Issues
-The file must be in csv. Currently does not work for a tsv file. 
+The file works with a tsv. However, it does not work with a tsv. 
+
+The column selector doesnt work past double digits. 

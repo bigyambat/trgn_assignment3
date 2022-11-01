@@ -4,7 +4,7 @@ import sys
 
 #Now using sys to allow user to specify file 
 
-file = open('mytextfile.txt', 'r')
+file = open(int(sys.argv[1]), 'r')
 phone_nums = file.read()
 
 phone_pattern = re.compile(r'[\+\(]?[1-9][0-9 .\-\(\)]{8,}[0-9]')
